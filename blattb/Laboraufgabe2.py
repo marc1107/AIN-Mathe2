@@ -52,7 +52,15 @@ for i in range(len(B)):
 
 # Kassenöffnung nach Zeit berechnen
 # To-Do: Formel zur Berechnung finden
+kassenoe = []
+letzteAnzahlKassen = 0
 
+for i in range(len(K)):
+    if K[i] > letzteAnzahlKassen:
+        kassenoe.append(1)
+        letzteAnzahlKassen = K[i]
+    else:
+        kassenoe.append(0)
 
 
 fig, ax = plt.subplots(2, 2)
@@ -77,7 +85,7 @@ ax[1, 0].set_title("Kassen je Besucher: K(B)")
 
 # Plot für Kassenöffnung nach Zeit
 # To-Do: In Punkten darstellen
-ax[1, 1].plot(t, K)
+ax[1, 1].plot(t, kassenoe, "+")
 ax[1, 1].set_xlabel("Zeit T(B)")
 ax[1, 1].set_ylabel("Kassenöffnungen")
 ax[1, 1].set_title("Kassenöffnung nach Zeit")
