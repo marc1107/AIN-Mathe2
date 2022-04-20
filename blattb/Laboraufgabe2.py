@@ -40,10 +40,14 @@ for i in range(0, 4201):
 K = []
 for i in range(len(B)):
     if B[i] != 0:
-        K.append(math.log(B[i]) + 0.5)
+        k = math.floor(math.log(B[i]) + 0.5)
+        if k < 1:
+            K.append(1)
+        else:
+            K.append(k)
         # K.append(math.log(BLocal, 10) + 0.5)
     else:
-        K.append(0)
+        K.append(1)
 
 
 # Kassenöffnung nach Zeit berechnen
